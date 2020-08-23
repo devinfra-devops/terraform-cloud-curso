@@ -4,13 +4,14 @@ provider "aws" {
 }
 
 module "EC2" {
-  source = "git::https://github.com/devinfra-br/terraform-modules.git//modules/ec2"
+  source = "./modules/EC2"
+  subnet = "module.VPC.subnet_id"
 }
 
 module "VPC" {
-  source = "git::https://github.com/devinfra-br/terraform-modules.git//modules/vpc"
+  source = "./modules/VPC"
 }
 
 module "S3" {
-  source = "git::https://github.com/devinfra-br/terraform-modules.git//modules/s3"
+  source = "./modules/S3"
 }
